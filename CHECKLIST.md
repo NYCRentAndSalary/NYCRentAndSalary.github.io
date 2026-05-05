@@ -56,4 +56,9 @@
 * [ ] Change in top 10(?) jobs, are there some jobtypes, that have a smaller/larger increase in salay? Do they have something in common? Correlation?
 * [ ] Correlation between gentrification and rent increase (other factors)
 * [ ] Look at policy changes, that might have affected rent and/or income
-* [ ] 
+
+
+### Question sent in teams
+Question: Since there isn't a channel for Project Assignment B, I'm just going to ask here. In the feedback session last week, we were told we should be careful, that our visualizations aren’t just two graphs showing development over time. We're working with payroll data from New York, and comparing it to rent prices, to see if it's realistic to work and live in NY on a public salary. We're talking about looking at the increase in pay per year and see if there's a correlation between what job you have, and the change in pay per year, to see if some jobs have a higher/lower increase than others/the average. We also want to look at if it differs from borough to borough - possibly making an interactive map of increase per year for each borough, with the possibility of filtering the different jobs. If possible, we'd also like to look at data about ethnicities in the boroughs and see if there is a correlation between gentrification/other changes and increase in rent. Furthermore, we want to see if we can find any change in policies, where we can see an effect in either salary or rent. Is that different enough from what we did in class, or would we need to look into other datasets?
+
+Answer: Hi Sofie, that sounds like a deep and interesting analysis! Especially if you include data on boroughs and ethnicity and that way can make some speculations about gentrification. If you make sure to have a coherent story around graphs and the interactive aspects supports the data story I think it could be a great project!
