@@ -51,9 +51,9 @@
 * [ ] Plot of change in average rent and salary - Per borough
     * [ ] Are there specific times of year, where rent spikes? TImes that are better to look for apartments?
     * [ ] When did rent increase so much, that it is no longer realistic to pay on a public salary?
-* [ ] Distribution of apartment type per borough
+* [ ] Distribution of apartment type per borough - Sabirin
 * [ ] Heatmap of difference in average rent and income in each borough - Sofie
-* [ ] Change in top 10(?) jobs, are there some jobtypes, that have a smaller/larger increase in salay? Do they have something in common? Correlation?
+* [ ] Change in top 10(?) jobs, are there some jobtypes, that have a smaller/larger increase in salay? Do they have something in common? Correlation? - Sabirin
 * [ ] Correlation between gentrification and rent increase (other factors)
 * [ ] Correlation between population in NY and rent increase
 * [ ] Look at policy changes, that might have affected rent and/or income
