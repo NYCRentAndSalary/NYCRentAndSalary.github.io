@@ -1,3 +1,4 @@
 data/Citywide_Payroll_Data_(Fiscal_Year)_*.csv
 *.DS_Store
-data/medianAskingRent_*.csv
+data/medianAskingRent_*/
+data/income_data.csv
