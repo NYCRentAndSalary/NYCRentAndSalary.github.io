@@ -54,7 +54,7 @@
 * [ ] Distribution of apartment type per borough - Sabirin
 * [ ] Heatmap of difference in average rent and income in each borough - Sofie
 * [ ] Change in top 10(?) jobs, are there some jobtypes, that have a smaller/larger increase in salay? Do they have something in common? Correlation? - Sabirin
-* [ ] Correlation between gentrification and rent increase (other factors)
+* [ ] Correlation between gentrification and rent increase (other factors) - Sofie
 * [ ] Correlation between population in NY and rent increase
 * [ ] Look at policy changes, that might have affected rent and/or income
 
