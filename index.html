@@ -1,10 +1,1077 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>NYC Rent and Salary</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-        <p>This site will static and interactive data visualizations about rent and salary in New York City.</p>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expensive Living: The Hard Truth about Working and Living in NYC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── CSS Variables ─────────────────────────────── */
+    :root {
+      --bg-light:       #f5f4f2;
+      --bg-cream:       #f0e8dc;
+      --text-primary:   #2e2a24;
+      --accent:         #8b5e3c;
+      --mid-brown:      #a87d5a;
+      --light-brown:    #c4a882;
+      --card-caption:   #e0cdb8;
+      --card-bg:        #ede6dc;
+      --text-secondary: #7a6a58;
+      --border:         #c4b8a8;
+
+      --oxford:     #2e4460;
+      --olive:      #7a8c5c;
+      --rustic:     #9e6b1e;
+      --terracotta: #cc5e42;
+      --peach:      #ecddd0;
+      --moss:       #5a6e40;
+      --sand:       #c8a96e;
+      --clay:       #b8724e;
+      --slate-teal: #3d6b6b;
+      --linen:      #e8d8c4;
+
+      --page-gradient: linear-gradient(160deg, #f5f4f2 0%, #f0e8dc 100%);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Source Serif 4', Georgia, serif;
+      --col-max: 1200px;
+      --gap: clamp(2rem, 5vw, 4rem);
+    }
+
+    /* ── Reset & Base ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.1vw, 1.125rem);
+      line-height: 1.78;
+      color: var(--text-primary);
+      background: var(--page-gradient);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    /* ── Typography ────────────────────────────────── */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      line-height: 1.2;
+      color: var(--text-primary);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 1.25em;
+      font-weight: 300;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--mid-brown); }
+
+    sup a {
+      font-size: 0.7em;
+      text-decoration: none;
+      font-family: var(--font-body);
+      color: var(--accent);
+    }
+    sup a:hover { text-decoration: underline; }
+
+    /* ── Layout Utilities ──────────────────────────── */
+    .container {
+      max-width: var(--col-max);
+      margin-inline: auto;
+      padding-inline: clamp(1.25rem, 5vw, 3rem);
+    }
+
+    .section {
+      padding-block: var(--gap);
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    /* Narrow prose column */
+    .prose {
+      max-width: 68ch;
+    }
+
+    /* ── Hero ──────────────────────────────────────── */
+    .hero {
+      background: var(--text-primary);
+      color: var(--bg-cream);
+      padding-block: clamp(3.5rem, 8vw, 6rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(139,94,60,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(62,106,107,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: var(--col-max);
+      margin-inline: auto;
+      padding-inline: clamp(1.25rem, 5vw, 3rem);
+    }
+
+    .hero-kicker {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light-brown);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-kicker::after {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 1px;
+      background: var(--light-brown);
+      opacity: 0.6;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--bg-cream);
+      max-width: 18ch;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--light-brown);
+    }
+
+    .hero-intro {
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      font-weight: 300;
+      color: rgba(240,232,220,0.82);
+      max-width: 60ch;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      margin-top: 2.5rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      color: rgba(196,168,130,0.7);
+      font-family: var(--font-body);
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Horizontal rule / section divider ─────────── */
+    .divider {
+      width: 3rem;
+      height: 2px;
+      background: var(--accent);
+      margin-block: 1.25rem;
+    }
+
+    /* ── Pull quote ────────────────────────────────── */
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      margin: 2.5rem 0;
+      padding: 0.75rem 0 0.75rem 1.75rem;
+    }
+
+    .pull-quote p {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── Full-width figure block ───────────────────── */
+    .fig-block {
+      margin-block: 2.5rem;
+    }
+
+    .fig-block figure {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .fig-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--linen),
+        var(--linen) 6px,
+        var(--card-caption) 6px,
+        var(--card-caption) 12px
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .fig-placeholder svg {
+      opacity: 0.35;
+    }
+
+    .fig-placeholder-map {
+      aspect-ratio: 4 / 3;
+    }
+
+    figcaption {
+      background: var(--card-caption);
+      padding: 0.7rem 1.1rem;
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      line-height: 1.5;
+      border-top: 1px solid var(--border);
+    }
+
+    figcaption strong {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-right: 0.3em;
+    }
+
+    /* ── Side-by-side sticky layout ───────────────── */
+    /*
+     * The .sticky-pair wrapper uses display:flex.
+     * .sticky-text scrolls normally; .sticky-fig uses
+     * position:sticky so it stays in view while the
+     * text column scrolls past it.
+     */
+    .sticky-section {
+      padding-block: var(--gap);
+    }
+
+    .sticky-section + .sticky-section,
+    .sticky-section + .section,
+    .section + .sticky-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .sticky-pair {
+      max-width: var(--col-max);
+      margin-inline: auto;
+      padding-inline: clamp(1.25rem, 5vw, 3rem);
+      display: flex;
+      gap: clamp(2rem, 4vw, 3.5rem);
+      align-items: flex-start;
+    }
+
+    /* Text is the scrolling side */
+    .sticky-text {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    /* Figure is the sticky side */
+    .sticky-fig {
+      flex: 1 1 0;
+      min-width: 0;
+      position: sticky;
+      top: 2rem;
+      /* height capped to viewport so it never overflows */
+      max-height: calc(100vh - 4rem);
+    }
+
+    .sticky-fig figure {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* Reversed variant: figure on the left */
+    .sticky-pair.reverse {
+      flex-direction: row-reverse;
+    }
+
+    /* Stack vertically on narrow screens */
+    @media (max-width: 768px) {
+      .sticky-pair,
+      .sticky-pair.reverse {
+        flex-direction: column;
+      }
+
+      .sticky-fig {
+        position: static;
+        max-height: none;
+        width: 100%;
+      }
+    }
+
+    /* ── Section header label ──────────────────────── */
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 1px;
+      background: var(--mid-brown);
+    }
+
+    /* ── Stat callout ──────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-block: 2rem;
+    }
+
+    .stat-card {
+      flex: 1 1 140px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.1rem 1.3rem;
+    }
+
+    .stat-card .stat-value {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-card .stat-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+    }
+
+    /* ── Conclusion ────────────────────────────────── */
+    .conclusion {
+      background: var(--text-primary);
+      color: var(--bg-cream);
+      padding-block: clamp(3rem, 6vw, 5rem);
+    }
+
+    .conclusion .container h2 {
+      color: var(--bg-cream);
+    }
+
+    .conclusion .container p {
+      color: rgba(240,232,220,0.82);
+      max-width: 66ch;
+    }
+
+    .conclusion .divider {
+      background: var(--light-brown);
+    }
+
+    /* ── References ────────────────────────────────── */
+    .references {
+      padding-block: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .references h2 {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      margin-bottom: 1.25rem;
+    }
+
+    .references ol {
+      list-style: none;
+      counter-reset: ref-counter;
+      padding: 0;
+    }
+
+    .references ol li {
+      counter-increment: ref-counter;
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .references ol li:last-child { border-bottom: none; }
+
+    .references ol li::before {
+      content: '[' counter(ref-counter) ']';
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.78rem;
+      white-space: nowrap;
+      padding-top: 0.05em;
+      min-width: 2.2rem;
+    }
+
+    /* ── Footer ────────────────────────────────────── */
+    footer {
+      background: #211e1a;
+      color: rgba(196,168,130,0.5);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Iframe responsive (for embedded Plotly/Folium) */
+    .iframe-wrap {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .iframe-wrap iframe {
+      border: none;
+      width: 100%;
+      display: block;
+    }
+
+    /* ── Borough toggle tabs ───────────────────────── */
+    .borough-fig-block {
+      /* lift the tabs flush against the top of the figure card */
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .borough-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 0.85rem 1rem;
+      background: var(--card-caption);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .borough-tab {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.35rem 0.85rem;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+      line-height: 1;
+    }
+
+    .borough-tab:hover {
+      background: var(--card-bg);
+      color: var(--accent);
+      border-color: var(--mid-brown);
+    }
+
+    .borough-tab.active {
+      background: var(--accent);
+      color: var(--bg-cream);
+      border-color: var(--accent);
+    }
+
+    /* Make the panels part of the same card */
+    .borough-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0 0 4px 4px;
+      overflow: hidden;
+    }
+
+    .borough-panel.hidden {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="hero-kicker">Data Story &nbsp;·&nbsp; NYC Public Workers</p>
+      <h1>Expensive Living:<br /><em>The Hard Truth</em><br />about Working<br />and Living in NYC</h1>
+      <p class="hero-intro">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula justo nec est lobortis, sed interdum arcu dictum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      </p>
+      <div class="hero-meta">
+        <span>Data: NYC Open Data &amp; NYC Housing Authority</span>
+        <span>Period: 2010 – 2025</span>
+        <span>Group Project &mdash; [Author names]</span>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════════
+       SECTION 1 — Introduction / Setting the scene
+  ════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Introduction</p>
+      <h2>A City of Contrasts</h2>
+      <div class="divider"></div>
+
+      <div class="prose">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula justo nec est lobortis, sed interdum arcu dictum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.<sup><a href="#ref1" id="cite1">[1]</a></sup>
+        </p>
+        <p>
+          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.<sup><a href="#ref2" id="cite2">[2]</a></sup>
+        </p>
+        <p>
+          Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
+        </p>
+      </div>
+
+      <!-- Stat row -->
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-value">68%</div>
+          <div class="stat-label">Rent increase since 2000</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">$72k</div>
+          <div class="stat-label">Median public worker salary</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">$3,200</div>
+          <div class="stat-label">Median monthly rent (2023)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">53%</div>
+          <div class="stat-label">Share of income spent on rent</div>
+        </div>
+      </div>
+
+      <!-- Figure 1 — full width static plot -->
+      <div class="fig-block">
+        <figure id="fig1">
+          <div class="fig-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+            </svg>
+            <span>Figure 1 — Static Plot</span>
+          </div>
+          <figcaption>
+            <strong>Figure 1.</strong>
+            Median monthly rent by borough, 2000–2023. Data sourced from the NYC Housing Vacancy Survey and StreetEasy Rental Index. All values in 2023 dollars (CPI-adjusted).
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="prose">
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.<sup><a href="#ref3" id="cite3">[3]</a></sup>
+        </p>
+        <p>
+          Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       SECTION 2 — Salaries (STICKY: text left, fig right)
+  ════════════════════════════════════════════════ -->
+  <section class="sticky-section">
+    <div class="sticky-pair">
+
+      <!-- Text column -->
+      <div class="sticky-text">
+        <p class="section-label">Section I</p>
+        <h2>What Public Workers Earn</h2>
+        <div class="divider"></div>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio, et tempus feugiat.
+        </p>
+        <p>
+          Nullam varius, turpis molestie dictum semper, quam justo luctus nisi, vel bibendum lectus nunc in ipsum. Sed vitae mauris. Sed pretium augue id arcu fringilla, a porta nunc sodales. Quisque sit amet fermentum orci, vel varius ligula.
+        </p>
+
+        <div class="pull-quote">
+          <p>"The salary hasn't kept pace with what it costs to simply exist in this city — let alone raise a family here."</p>
+        </div>
+
+        <p>
+          Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc pretium sollicitudin sem. Aenean lectus elit, facilisis id, fermentum in, malesuada sit amet, metus. Sed commodo posuere pede.<sup><a href="#ref2" id="cite2b">[2]</a></sup>
+        </p>
+        <p>
+          Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Phasellus ultrices nulla quis nibh. Quisque a lectus.
+        </p>
+        <p>
+          Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi. Nullam in massa. Suspendisse vitae nisl sit amet augue bibendum aliquam.
+        </p>
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.<sup><a href="#ref4" id="cite4">[4]</a></sup>
+        </p>
+        <p>
+          Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
+        </p>
+      </div>
+
+      <!-- Sticky figure column -->
+      <div class="sticky-fig">
+        <figure id="fig2">
+          <div class="fig-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 20V10m4 10V4m4 16v-7m4 7v-3m4 3V8"/>
+            </svg>
+            <span>Figure 2 — Static Plot</span>
+          </div>
+          <figcaption>
+            <strong>Figure 2.</strong>
+            Distribution of annual salaries across NYC public-sector job categories (2023). Box plot shows median, IQR, and outliers. Source: NYC Citywide Payroll Data (Fiscal Year).
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       SECTION 3 — Rent vs Salary over time (full-width animated)
+  ════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Section II</p>
+      <h2>The Widening Gap</h2>
+      <div class="divider"></div>
+
+      <div class="prose">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<sup><a href="#ref1" id="cite1b">[1]</a></sup>
+        </p>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+
+      <!-- Figure 3 — Borough-toggled animated plots -->
+      <div class="fig-block borough-fig-block">
+
+        <!-- Toggle buttons -->
+        <div class="borough-tabs" role="tablist" aria-label="Select borough">
+          <button class="borough-tab active" role="tab" aria-selected="true"  data-borough="nyc"           aria-controls="fig3-nyc">NYC Total</button>
+          <button class="borough-tab"        role="tab" aria-selected="false" data-borough="manhattan"     aria-controls="fig3-manhattan">Manhattan</button>
+          <button class="borough-tab"        role="tab" aria-selected="false" data-borough="brooklyn"      aria-controls="fig3-brooklyn">Brooklyn</button>
+          <button class="borough-tab"        role="tab" aria-selected="false" data-borough="queens"        aria-controls="fig3-queens">Queens</button>
+          <button class="borough-tab"        role="tab" aria-selected="false" data-borough="bronx"         aria-controls="fig3-bronx">The Bronx</button>
+          <button class="borough-tab"        role="tab" aria-selected="false" data-borough="staten-island" aria-controls="fig3-staten-island">Staten Island</button>
+        </div>
+
+        <!-- Panels -->
+        <figure class="borough-panel" id="fig3-nyc"           role="tabpanel" aria-label="NYC Total">
+          <!-- <div class="fig-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span>Figure 3 — NYC Total</span>
+          </div> -->
+          <div class="iframe-wrap">
+            <iframe src="visualizations/rent_vs_salary_by_year_new_york_city.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
+            <!-- 520/1600/900 -->
+          </div>
+          <figcaption><strong>Figure 3 (NYC Total).</strong> Median public-sector salary (bars) vs. average rent by apartment type (lines), 2000–2023. Built with Plotly; values in 2023 dollars.</figcaption>
+        </figure>
+
+        <figure class="borough-panel hidden" id="fig3-manhattan" role="tabpanel" aria-label="Manhattan">
+          <div class="iframe-wrap">
+            <iframe data-src="visualizations/rent_vs_salary_by_year_manhattan.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
+          </div>
+          <figcaption><strong>Figure 3 (Manhattan).</strong> Median public-sector salary (bars) vs. average rent by apartment type (lines), 2000–2023. Built with Plotly; values in 2023 dollars.</figcaption>
+        </figure>
+
+        <figure class="borough-panel hidden" id="fig3-brooklyn" role="tabpanel" aria-label="Brooklyn">
+          <div class="iframe-wrap">
+            <iframe data-src="visualizations/rent_vs_salary_by_year_brooklyn.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
+          </div>
+          <figcaption><strong>Figure 3 (Brooklyn).</strong> Median public-sector salary (bars) vs. average rent by apartment type (lines), 2000–2023. Built with Plotly; values in 2023 dollars.</figcaption>
+        </figure>
+
+        <figure class="borough-panel hidden" id="fig3-queens" role="tabpanel" aria-label="Queens">
+          <div class="iframe-wrap">
+            <iframe data-src="visualizations/rent_vs_salary_by_year_queens.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
+          </div>
+          <figcaption><strong>Figure 3 (Queens).</strong> Median public-sector salary (bars) vs. average rent by apartment type (lines), 2000–2023. Built with Plotly; values in 2023 dollars.</figcaption>
+        </figure>
+
+        <figure class="borough-panel hidden" id="fig3-bronx" role="tabpanel" aria-label="The Bronx">
+          <div class="iframe-wrap">
+            <iframe data-src="visualizations/rent_vs_salary_by_year_bronx.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
+          </div>
+          <figcaption><strong>Figure 3 (The Bronx).</strong> Median public-sector salary (bars) vs. average rent by apartment type (lines), 2000–2023. Built with Plotly; values in 2023 dollars.</figcaption>
+        </figure>
+
+        <figure class="borough-panel hidden" id="fig3-staten-island" role="tabpanel" aria-label="Staten Island">
+          <div class="iframe-wrap">
+            <iframe data-src="visualizations/rent_vs_salary_by_year_staten_island.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
+          </div>
+          <figcaption><strong>Figure 3 (Staten Island).</strong> Median public-sector salary (bars) vs. average rent by apartment type (lines), 2000–2023. Built with Plotly; values in 2023 dollars.</figcaption>
+        </figure>
+
+      </div>
+
+      <div class="prose">
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.<sup><a href="#ref3" id="cite3b">[3]</a></sup>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       SECTION 4 — Gentrification (STICKY: fig left, text right)
+  ════════════════════════════════════════════════ -->
+  <section class="sticky-section">
+    <div class="sticky-pair reverse">
+
+      <!-- Sticky figure on the left -->
+      <div class="sticky-fig">
+        <figure id="fig4">
+          <div class="fig-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+            </svg>
+            <span>Figure 4 — Animated Plot</span>
+          </div>
+          <figcaption>
+            <strong>Figure 4.</strong>
+            Affordability ratio (rent ÷ monthly salary) by borough over time. Values above 0.30 indicate cost-burdened households. Animated with Plotly; play to step through years.
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Text column -->
+      <div class="sticky-text">
+        <p class="section-label">Section III</p>
+        <h2>Gentrification and Displacement</h2>
+        <div class="divider"></div>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula justo nec est lobortis, sed interdum arcu dictum. Donec at sem in libero malesuada lobortis. Integer vitae nisi a erat cursus sodales id euismod nisi.
+        </p>
+        <p>
+          Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero.
+        </p>
+
+        <div class="pull-quote">
+          <p>"Gentrification doesn't arrive overnight — it accumulates in ten-dollar rent increases and closed laundromats, until one day the neighbourhood you grew up in no longer recognises you."</p>
+        </div>
+
+        <p>
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vel ante a orci tempus eleifend ut et magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<sup><a href="#ref5" id="cite5">[5]</a></sup>
+        </p>
+        <p>
+          Curabitur dignissim nulla vel augue. Donec turpis. Donec vitae risus. Quisque tristique tristique turpis. Nulla facilisi. Fusce aliquet urna sit amet leo. Proin et tellus sit amet lorem fringilla fringilla.
+        </p>
+        <p>
+          Nam enim risus, molestie et, porta ac, aliquam sed, lorem. Praesent ac massa at ligula laoreet iaculis. Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit. Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula.<sup><a href="#ref6" id="cite6">[6]</a></sup>
+        </p>
+        <p>
+          Fusce fermentum. Nullam cursus lacinia erat. Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas neque sit amet convallis ullamcorper, nisi nibh vestibulum odio, sit amet ultrices odio risus quis lacus.
+        </p>
+        <p>
+          Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       SECTION 5 — Disposable income / Folium heatmap
+  ════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Section IV</p>
+      <h2>What's Left After Rent</h2>
+      <div class="divider"></div>
+
+      <div class="prose">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. After accounting for federal and state income taxes as well as average monthly rent, how much of a public-sector salary actually remains for discretionary spending? The map below visualises the geographic distribution of estimated disposable income across NYC neighbourhoods.
+        </p>
+        <p>
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique.<sup><a href="#ref4" id="cite4b">[4]</a></sup>
+        </p>
+      </div>
+
+      <!-- Figure 5 — Folium heatmap (taller aspect) -->
+      <div class="fig-block">
+        <figure id="fig5">
+          <div class="fig-placeholder fig-placeholder-map">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            <span>Figure 5 — Folium Heatmap</span>
+          </div>
+          <figcaption>
+            <strong>Figure 5.</strong>
+            Interactive heatmap showing estimated average monthly disposable income (post-tax, post-rent) for NYC public workers, by neighbourhood and apartment type. Red indicates near-zero or negative disposable income; green indicates comfortable surplus. Built with Folium.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="prose">
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.<sup><a href="#ref6" id="cite6b">[6]</a></sup>
+        </p>
+        <p>
+          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       SECTION 6 — Correlation / final figure (STICKY: text left, fig right)
+  ════════════════════════════════════════════════ -->
+  <section class="sticky-section">
+    <div class="sticky-pair">
+
+      <!-- Text column -->
+      <div class="sticky-text">
+        <p class="section-label">Section V</p>
+        <h2>Patterns in the Data</h2>
+        <div class="divider"></div>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
+        </p>
+        <p>
+          Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit.<sup><a href="#ref5" id="cite5b">[5]</a></sup>
+        </p>
+        <p>
+          Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue.
+        </p>
+        <p>
+          Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pharetra volutpat. Pellentesque ut neque.<sup><a href="#ref2" id="cite2c">[2]</a></sup>
+        </p>
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In ac felis quis tortor malesuada pretium.
+        </p>
+      </div>
+
+      <!-- Sticky figure -->
+      <div class="sticky-fig">
+        <figure id="fig6">
+          <div class="fig-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="7" cy="17" r="2"/><circle cx="12" cy="10" r="2"/><circle cx="17" cy="6" r="2"/>
+              <line x1="3" y1="21" x2="21" y2="3"/>
+            </svg>
+            <span>Figure 6 — Static Plot</span>
+          </div>
+          <figcaption>
+            <strong>Figure 6.</strong>
+            Scatter plot showing the correlation between annual rent increase (%) and median public-sector salary growth (%) per borough, 2000–2023. Each point represents one borough-year observation; colour encodes borough identity.
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       CONCLUSION
+  ════════════════════════════════════════════════ -->
+  <section class="conclusion">
+    <div class="container">
+      <p class="section-label" style="color: var(--light-brown);">Conclusion</p>
+      <h2>The City They Can No Longer Afford</h2>
+      <div class="divider"></div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+      <p>
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      </p>
+      <p>
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       REFERENCES
+  ════════════════════════════════════════════════ -->
+  <section class="references section">
+    <div class="container">
+      <h2>References</h2>
+      <ol>
+        <li id="ref1">
+          Smith, J. A., &amp; Lee, M. (2021). <em>Housing Affordability in New York City: A Twenty-Year Retrospective.</em> NYU Furman Center for Real Estate and Urban Policy. Retrieved from https://furmancenter.org/
+        </li>
+        <li id="ref2">
+          New York City Office of Management and Budget. (2023). <em>NYC Citywide Payroll Data (Fiscal Year 2023).</em> NYC Open Data. Retrieved from https://opendata.cityofnewyork.us/
+        </li>
+        <li id="ref3">
+          StreetEasy Research. (2023). <em>StreetEasy Rental Index Q4 2023.</em> StreetEasy. Retrieved from https://streeteasy.com/
+        </li>
+        <li id="ref4">
+          NYC Department of Housing Preservation and Development. (2022). <em>2021 New York City Housing and Vacancy Survey: Selected Initial Findings.</em> Retrieved from https://www.nyc.gov/site/hpd/
+        </li>
+        <li id="ref5">
+          Marcuse, P. (2019). <em>Gentrification, Abandonment, and Displacement: Connections, Causes, and Policy Responses in New York City.</em> Journal of Urban &amp; Contemporary Law, 28, 195–240.
+        </li>
+        <li id="ref6">
+          U.S. Bureau of Labor Statistics. (2023). <em>Occupational Employment and Wage Statistics — New York Metro Area.</em> Retrieved from https://www.bls.gov/oes/
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════ -->
+  <footer>
+    <span>Expensive Living &mdash; NYC Public Workers &nbsp;·&nbsp; Group 35 &nbsp;·&nbsp; s211150, s224171, and s224185 &nbsp;·&nbsp; Social Data Analysis &amp; Visualization &nbsp;·&nbsp; 2026</span>
+  </footer>
+  <script>
+    /* ── Reflow a single iframe via Plotly.Plots.resize ── */
+    function reflowIframe(iframe) {
+    setTimeout(function () {
+        try {
+        var win = iframe.contentWindow;
+        var gd  = win.document.querySelector('.plotly-graph-div');
+        if (gd && win.Plotly) {
+            win.Plotly.Plots.resize(gd);
+        } else {
+            /* Fallback for Folium / non-Plotly iframes */
+            win.dispatchEvent(new Event('resize'));
+        }
+        } catch (e) {}
+    }, 150);
+    }
+
+    /* Reflow all loaded iframes (used on window resize) */
+    function reflowAllIframes() {
+    document.querySelectorAll('.iframe-wrap iframe[src]').forEach(reflowIframe);
+    }
+
+    /* Reflow on browser resize / zoom */
+    window.addEventListener('resize', reflowAllIframes);
+
+    /* Reflow each iframe once its document has loaded */
+    document.querySelectorAll('.iframe-wrap iframe[src]').forEach(function (iframe) {
+    iframe.addEventListener('load', function () { reflowIframe(iframe); });
+    });
+
+    /* ── Borough tab switcher ── */
+    (function () {
+    var tabs   = document.querySelectorAll('.borough-tab');
+    var panels = document.querySelectorAll('.borough-panel');
+
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+        var target = tab.dataset.borough;
+
+        tabs.forEach(function (t) {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        panels.forEach(function (panel) {
+            if (panel.id === 'fig3-' + target) {
+            panel.classList.remove('hidden');
+
+            /* Lazy-load: move data-src → src on first visit */
+            var iframe = panel.querySelector('.iframe-wrap iframe');
+            if (iframe) {
+                if (!iframe.src || iframe.src === window.location.href) {
+                /* Not yet loaded — set src, reflow fires via the load listener */
+                var lazySrc = iframe.getAttribute('data-src');
+                if (lazySrc) {
+                    iframe.addEventListener('load', function () { reflowIframe(iframe); });
+                    iframe.src = lazySrc;
+                }
+                } else {
+                /* Already loaded — just reflow */
+                reflowIframe(iframe);
+                }
+            }
+            } else {
+            panel.classList.add('hidden');
+            }
+        });
+        });
+    });
+    })();
+  </script>
+
+</body>
 </html>
