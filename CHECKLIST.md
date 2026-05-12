@@ -7,9 +7,9 @@
 
 ### Website requirements
 
-* [ ] Visualizations
+* [x] Visualizations
 * [ ] Data story
-* [ ] Cohesive design
+* [x] Cohesive design
 
 #### Our requirements/notes
 * [ ] Don't express certainty, if the data doesn't support it
