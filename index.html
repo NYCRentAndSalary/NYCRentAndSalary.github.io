@@ -36,7 +36,7 @@
       --page-gradient: linear-gradient(160deg, #f5f4f2 0%, #f0e8dc 100%);
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body:    'Source Serif 4', Georgia, serif;
-      --col-max: 1200px;
+      --col-max: 1300px;
       --gap: clamp(2rem, 5vw, 4rem);
     }
 
@@ -482,6 +482,18 @@
       display: block;
     }
 
+    /* .iframe-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .iframe-wrap iframe {
+      transform-origin: top left;
+      display: block;
+      border: none;
+    } */
+
     /* ── Borough toggle tabs ───────────────────────── */
     .borough-fig-block {
       /* lift the tabs flush against the top of the figure card */
@@ -606,7 +618,7 @@
       </div>
 
       <!-- Figure 1 — full width static plot -->
-      <div class="fig-block">
+      <!-- <div class="fig-block">
         <figure id="fig1">
           <div class="fig-placeholder">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -619,7 +631,11 @@
             Median monthly rent by borough, 2000–2023. Data sourced from the NYC Housing Vacancy Survey and StreetEasy Rental Index. All values in 2023 dollars (CPI-adjusted).
           </figcaption>
         </figure>
-      </div>
+      </div> -->
+
+      <div class="pull-quote">
+          <p>"The salary hasn't kept pace with what it costs to simply exist in this city — let alone raise a family here."</p>
+        </div>
 
       <div class="prose">
         <p>
@@ -677,15 +693,18 @@
       <!-- Sticky figure column -->
       <div class="sticky-fig">
         <figure id="fig2">
-          <div class="fig-placeholder">
+          <!-- <div class="fig-placeholder">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 20V10m4 10V4m4 16v-7m4 7v-3m4 3V8"/>
             </svg>
             <span>Figure 2 — Static Plot</span>
+          </div> -->
+          <div class="iframe-wrap">
+            <iframe src="visualizations/pop_jobs_salaries_and_increase.html" height="728" data-fig-w="650" data-fig-h="7200"></iframe> 
           </div>
           <figcaption>
             <strong>Figure 2.</strong>
-            Distribution of annual salaries across NYC public-sector job categories (2023). Box plot shows median, IQR, and outliers. Source: NYC Citywide Payroll Data (Fiscal Year).
+            Evolution of salaries for popular jobs in New York City across the years (2015-2025). The top panel shows the percent increase in salary per year, compared to the 2015 mean, for 6 popular jobs. The bottom panel shows the mean salary (in USD) by year for each of the same 6 jobs.
           </figcaption>
         </figure>
       </div>
@@ -735,42 +754,42 @@
             <iframe src="visualizations/rent_vs_salary_by_year_new_york_city.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
             <!-- 520/1600/900 -->
           </div>
-          <figcaption><strong>Figure 3 (NYC Total).</strong> Mean public-sector salary (bars) vs. average rent by apartment type (lines), 2015–2025. Values in USD. Rent and salary data are average values for apartments and work places in New York City as a whole. Shown data can be toggled, by clicking in the figure legend. </figcaption>
+          <figcaption><strong>Figure 3 (NYC Total).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. Values in USD. Rent and salary data are mean values for apartments and work places in New York City as a whole. Shown data can be toggled, by clicking in the figure legend. </figcaption>
         </figure>
 
         <figure class="borough-panel hidden" id="fig3-manhattan" role="tabpanel" aria-label="Manhattan">
           <div class="iframe-wrap">
             <iframe data-src="visualizations/rent_vs_salary_by_year_manhattan.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
-          <figcaption><strong>Figure 3 (Manhattan).</strong> Mean public-sector salary (bars) vs. average rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are average values for apartments and work places in Manhattan. Shown data can be toggled, by clicking in the figure legend. NYC average salary can be shown for comparison. </figcaption>
+          <figcaption><strong>Figure 3 (Manhattan).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Manhattan. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
         </figure>
 
         <figure class="borough-panel hidden" id="fig3-brooklyn" role="tabpanel" aria-label="Brooklyn">
           <div class="iframe-wrap">
             <iframe data-src="visualizations/rent_vs_salary_by_year_brooklyn.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
-          <figcaption><strong>Figure 3 (Brooklyn).</strong> Mean public-sector salary (bars) vs. average rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are average values for apartments and work places in Brooklyn. Shown data can be toggled, by clicking in the figure legend. NYC average salary can be shown for comparison. </figcaption>
+          <figcaption><strong>Figure 3 (Brooklyn).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Brooklyn. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
         </figure>
 
         <figure class="borough-panel hidden" id="fig3-queens" role="tabpanel" aria-label="Queens">
           <div class="iframe-wrap">
             <iframe data-src="visualizations/rent_vs_salary_by_year_queens.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
-          <figcaption><strong>Figure 3 (Queens).</strong> Mean public-sector salary (bars) vs. average rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are average values for apartments and work places in Queens. Shown data can be toggled, by clicking in the figure legend. NYC average salary can be shown for comparison. </figcaption>
+          <figcaption><strong>Figure 3 (Queens).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Queens. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
         </figure>
 
         <figure class="borough-panel hidden" id="fig3-bronx" role="tabpanel" aria-label="The Bronx">
           <div class="iframe-wrap">
             <iframe data-src="visualizations/rent_vs_salary_by_year_bronx.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
-          <figcaption><strong>Figure 3 (The Bronx).</strong> Mean public-sector salary (bars) vs. average rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are average values for apartments and work places in The Bronx. Shown data can be toggled, by clicking in the figure legend. NYC average salary can be shown for comparison. </figcaption>
+          <figcaption><strong>Figure 3 (The Bronx).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in The Bronx. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
         </figure>
 
         <figure class="borough-panel hidden" id="fig3-staten-island" role="tabpanel" aria-label="Staten Island">
           <div class="iframe-wrap">
             <iframe data-src="visualizations/rent_vs_salary_by_year_staten_island.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
-          <figcaption><strong>Figure 3 (Staten Island).</strong> Mean public-sector salary (bars) vs. average rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are average values for apartments and work places in Staten Island. Shown data can be toggled, by clicking in the figure legend. NYC average salary can be shown for comparison. </figcaption>
+          <figcaption><strong>Figure 3 (Staten Island).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Staten Island. Shown data can be toggled, by clicking in the figure legend. NYC average salary can be shown for comparison. </figcaption>
         </figure>
 
       </div>
@@ -1074,6 +1093,22 @@
         });
     });
     })();
+    // function scaleIframes() {
+    //     document.querySelectorAll('.iframe-wrap iframe').forEach(function (iframe) {
+    //         var figW = parseFloat(iframe.getAttribute('data-fig-w'));
+    //         var figH = parseFloat(iframe.getAttribute('data-fig-h'));
+    //         if (!figW || !figH) return;
+    //         var availW = iframe.parentElement.clientWidth;
+    //         var scale  = availW / figW;
+    //         iframe.style.width  = figW + 'px';
+    //         iframe.style.height = figH + 'px';
+    //         iframe.style.transform = 'scale(' + scale + ')';
+    //         iframe.parentElement.style.height = (figH * scale) + 'px';
+    //     });
+    // }
+
+    // window.addEventListener('load',   scaleIframes);
+    // window.addEventListener('resize', scaleIframes);
   </script>
 
 </body>
