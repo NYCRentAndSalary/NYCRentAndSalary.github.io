@@ -93,6 +93,11 @@
     }
     sup a:hover { text-decoration: underline; }
 
+    .emphasis {
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
     /* ── Layout Utilities ──────────────────────────── */
     .container {
       max-width: var(--col-max);
@@ -575,62 +580,51 @@
 
       <div class="prose">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula justo nec est lobortis, sed interdum arcu dictum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.<sup><a href="#ref1" id="cite1">[1]</a></sup>
+          With its estimated population of 8,584,629 in 2025,<sup><a href="#ref3" id="cite3">[3]</a></sup> New York City is the most populated city in the US.
+          The city has <strong class="emphasis">a large public workforce with a headcount of 306,248 in 2024</strong>,<sup><a href="#ref4" id="cite4">[4]</a></sup> with people working in fields,
+          such as education, police, health and social services, sanitation and many more.
+
         </p>
         <p>
-          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.<sup><a href="#ref2" id="cite2">[2]</a></sup>
+          In 2023, approximately <strong class="emphasis">63% of all housing units were occupied by renters</strong>.<sup><a href="#ref5" id="cite4">[5]</a></sup> With so many New Yorkers working in
+          crucial areas, and providing necessary service to the city, we want to analyze whether New York City's public workers can comfortably afford to live there.
         </p>
         <p>
-          Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
+          Living expenses are ever increasing &mdash; including rent &mdash; and since such a large part of homes in New York City are renter-occupied,
+          we aim to discover whether the salaries of the public workforce has kept up.
         </p>
       </div>
 
       <!-- Stat row -->
       <div class="stat-row">
         <div class="stat-card">
-          <div class="stat-value">68%</div>
-          <div class="stat-label">Rent increase since 2000</div>
+          <div class="stat-value">50%</div>
+          <div class="stat-label">Rent increase since 2015</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value">$72k</div>
-          <div class="stat-label">Median public worker salary</div>
+          <div class="stat-value">$88k</div>
+          <div class="stat-label">Median public worker salary (2025)</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value">$3,200</div>
-          <div class="stat-label">Median monthly rent (2023)</div>
+          <div class="stat-value">$3,300</div>
+          <div class="stat-label">Median monthly rent (2025)</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value">53%</div>
-          <div class="stat-label">Share of income spent on rent</div>
+          <div class="stat-value">45%</div>
+          <div class="stat-label">Share of income spent on rent (before tax)</div>
         </div>
       </div>
 
-      <!-- Figure 1 — full width static plot -->
-      <!-- <div class="fig-block">
-        <figure id="fig1">
-          <div class="fig-placeholder">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-            </svg>
-            <span>Figure 1 — Static Plot</span>
-          </div>
-          <figcaption>
-            <strong>Figure 1.</strong>
-            Median monthly rent by borough, 2000–2023. Data sourced from the NYC Housing Vacancy Survey and StreetEasy Rental Index. All values in 2023 dollars (CPI-adjusted).
-          </figcaption>
-        </figure>
-      </div> -->
-
       <div class="pull-quote">
-          <p>"The salary hasn't kept pace with what it costs to simply exist in this city — let alone raise a family here."</p>
+          <p>"Can New York City's public workforce still afford to call the city home?"</p>
         </div>
 
       <div class="prose">
         <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.<sup><a href="#ref3" id="cite3">[3]</a></sup>
-        </p>
-        <p>
-          Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+          In 2015, the median annual public worker salary was $68k, and the median monthly rent was $2,300. 
+          A public worker thus spent approximately 40% of their income on rent (before taxes).
+          In 2025, the numbers have increased to $88k and $3,300, respectively, meaning approximately <strong class="emphasis">45% of a public worker's salary 
+          now goes to rent</strong> - an increase of 5 percentage points over 10 years!
         </p>
       </div>
 
@@ -681,12 +675,6 @@
       <!-- Sticky figure column -->
       <div class="sticky-fig">
         <figure id="fig1">
-          <!-- <div class="fig-placeholder">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 20V10m4 10V4m4 16v-7m4 7v-3m4 3V8"/>
-            </svg>
-            <span>Figure 2 — Static Plot</span>
-          </div> -->
           <div class="iframe-wrap">
             <iframe src="visualizations/pop_jobs_salaries_and_increase.html" height="728" data-fig-w="650" data-fig-h="7200"></iframe> 
           </div>
@@ -734,13 +722,8 @@
 
         <!-- Panels -->
         <figure class="borough-panel" id="fig2-nyc"           role="tabpanel" aria-label="NYC Total">
-          <!-- <div class="fig-placeholder">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            <span>Figure 3 — NYC Total</span>
-          </div> -->
           <div class="iframe-wrap">
             <iframe src="visualizations/rent_vs_salary_by_year_new_york_city.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
-            <!-- 520/1600/900 -->
           </div>
           <figcaption><strong>Figure 2 (NYC Total).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. Values in USD. Rent and salary data are mean values for apartments and work places in New York City as a whole. Shown data can be toggled, by clicking in the figure legend. </figcaption>
         </figure>
@@ -873,12 +856,6 @@
       <!-- Figure 5 — Folium heatmap (taller aspect) -->
       <div class="fig-block">
         <figure id="fig4">
-          <!-- <div class="fig-placeholder fig-placeholder-map">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
-            </svg>
-            <span>Figure 5 — Folium Heatmap</span>
-          </div> -->
           <div class="iframe-wrap">
             <iframe src="visualizations/map_rent_vs_income.html" height="725" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
@@ -987,6 +964,17 @@
           StreetEasy. (2026). <em>NYC Median Asking Rent.</em> StreetEasy. Retrieved from https://streeteasy.com/blog/data-dashboard/?agg=Total&metric=Inventory&type=Rentals&bedrooms=Any%20Bedrooms&property=Any%20Property%20Type&minDate=2010-01-01&maxDate=2026-03-01&area=NYC,Brooklyn
         </li>
         <li id="ref3">
+          United States Census Bureau. (2025). <em>QuickFacts Kings County, New York; Queens County, New York; New York County, New York; Bronx County, New York; Richmond County, New York.</em> QuickFacts. Retrieved from https://www.census.gov/quickfacts/fact/table/
+          kingscountynewyork,queenscountynewyork,newyorkcountynewyork,bronxcountynewyork,richmondcountynewyork/
+          PST045225#PST045225
+        </li>
+        <li id="ref4">
+          Henrichson, C. (2024). <em>NYC Employee Headcount.</em> CBC. Retrieved from https://cbcny.org/research/nyc-employee-headcount
+        </li>
+        <li id="ref5">
+          NYC Mayor's Office to Protect Tenants. (2025). <em>Fast Facts about NYC Housing.</em> NYC.gov. Retrieved from https://www.nyc.gov/content/tenantprotection/pages/fast-facts-about-housing-in-nyc
+        </li>
+        <li id="ref6">
           Marcuse, P. (2019). <em>Gentrification, Abandonment, and Displacement: Connections, Causes, and Policy Responses in New York City.</em> Journal of Urban &amp; Contemporary Law, 28, 195–240.
         </li>
       </ol>
