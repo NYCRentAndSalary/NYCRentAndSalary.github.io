@@ -7,9 +7,9 @@
 
 ### Website requirements
 
-* [ ] Visualizations
+* [x] Visualizations
 * [ ] Data story
-* [ ] Cohesive design
+* [x] Cohesive design
 
 #### Our requirements/notes
 * [ ] Don't express certainty, if the data doesn't support it
@@ -48,14 +48,12 @@
 
 
 ### Ideas for plots
-* [ ] Plot of change in average rent and salary - Per borough
-    * [ ] Are there specific times of year, where rent spikes? TImes that are better to look for apartments?
+* [x] Plot of change in average rent and salary - Per borough
     * [ ] When did rent increase so much, that it is no longer realistic to pay on a public salary?
 * [ ] Distribution of apartment type per borough - Sabirin
 * [x] Map of difference in average rent and income in each borough - Sofie
-* [ ] Change in top 10(?) jobs, are there some jobtypes, that have a smaller/larger increase in salay? Do they have something in common? Correlation? - Sabirin
-* [ ] Correlation between gentrification and rent increase (other factors) - Sofie
-* [ ] Correlation between population in NY and rent increase
+* [x] Change in top 10(?) jobs, are there some jobtypes, that have a smaller/larger increase in salay? Do they have something in common? Correlation? - Sabirin
+* [x] Correlation between gentrification and rent increase (other factors) - Sofie
 * [ ] Look at policy changes, that might have affected rent and/or income
 
 
