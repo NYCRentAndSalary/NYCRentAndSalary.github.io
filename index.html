@@ -860,17 +860,44 @@
       </div>
 
       <!-- Figure 3 — Folium heatmap (taller aspect) -->
-      <div class="fig-block">
-        <figure id="fig3">
-          <div class="iframe-wrap">
-            <iframe src="visualizations/map_rent_vs_income.html" height="725" data-fig-w="1090" data-fig-h="480"></iframe> 
-          </div>
-          <figcaption>
-            <strong>Figure 3.</strong>
-            Interactive heatmap showing estimated average monthly disposable income (post-tax, post-rent) for NYC public workers, by neighbourhood and apartment type. Red indicates near-zero or negative disposable income; green indicates comfortable surplus. Built with Folium.
-          </figcaption>
-        </figure>
+<!-- Figure 3 — All apartment types side by side -->
+<div class="fig-block">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+    
+    <figure style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 0;">
+      <div class="iframe-wrap">
+        <iframe src="visualizations/map_rent_vs_income_studio.html" height="500"></iframe> 
       </div>
+      <figcaption><strong>Studio</strong></figcaption>
+    </figure>
+
+    <figure style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 0;">
+      <div class="iframe-wrap">
+        <iframe src="visualizations/map_rent_vs_income_one_bedroom.html" height="500"></iframe> 
+      </div>
+      <figcaption><strong>One Bedroom</strong></figcaption>
+    </figure>
+
+    <figure style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 0;">
+      <div class="iframe-wrap">
+        <iframe src="visualizations/map_rent_vs_income_two_bedrooms.html" height="500"></iframe> 
+      </div>
+      <figcaption><strong>Two Bedrooms</strong></figcaption>
+    </figure>
+
+    <figure style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 0;">
+      <div class="iframe-wrap">
+        <iframe src="visualizations/map_rent_vs_income_three_plus_bedrooms.html" height="500"></iframe> 
+      </div>
+      <figcaption><strong>Three+ Bedrooms</strong></figcaption>
+    </figure>
+
+  </div>
+
+  <figcaption style="background: var(--card-caption); padding: 0.7rem 1.1rem; font-size: 0.83rem; color: var(--text-secondary); font-style: italic; line-height: 1.5;">
+    <strong>Figure 3.</strong> Interactive heatmaps showing estimated average monthly disposable income (post-tax, post-rent) for NYC public workers by apartment type. Red indicates near-zero or negative disposable income; green indicates comfortable surplus. Red/yellow/green scale is consistent across all four maps.
+  </figcaption>
+</div>
 
       <div class="prose">
         <p>
