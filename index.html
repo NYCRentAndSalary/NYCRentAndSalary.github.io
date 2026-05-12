@@ -482,18 +482,6 @@
       display: block;
     }
 
-    /* .iframe-wrap {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .iframe-wrap iframe {
-      transform-origin: top left;
-      display: block;
-      border: none;
-    } */
-
     /* ── Borough toggle tabs ───────────────────────── */
     .borough-fig-block {
       /* lift the tabs flush against the top of the figure card */
@@ -568,9 +556,9 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula justo nec est lobortis, sed interdum arcu dictum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
       </p>
       <div class="hero-meta">
-        <span>Data: NYC Open Data &amp; NYC Housing Authority</span>
+        <span>Data: NYC Citywide Payroll Data<sup><a href="#ref1" id="cite1">[1]</a></sup> &amp; StreetEasy Rent Index<sup><a href="#ref2" id="cite2">[2]</a></sup></span>
         <span>Period: 2010 – 2025</span>
-        <span>Group Project &mdash; [Author names]</span>
+        <span>Group 35 &mdash; Sofie U. Jensen, Nikolai B. E. Johansen &amp; Sabirin N. Omar </span>
       </div>
     </div>
   </header>
@@ -683,7 +671,7 @@
           Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi. Nullam in massa. Suspendisse vitae nisl sit amet augue bibendum aliquam.
         </p>
         <p>
-          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.<sup><a href="#ref4" id="cite4">[4]</a></sup>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.<sup><a href="#ref1" id="cite4">[4]</a></sup>
         </p>
         <p>
           Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
@@ -692,7 +680,7 @@
 
       <!-- Sticky figure column -->
       <div class="sticky-fig">
-        <figure id="fig2">
+        <figure id="fig1">
           <!-- <div class="fig-placeholder">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 20V10m4 10V4m4 16v-7m4 7v-3m4 3V8"/>
@@ -703,7 +691,7 @@
             <iframe src="visualizations/pop_jobs_salaries_and_increase.html" height="728" data-fig-w="650" data-fig-h="7200"></iframe> 
           </div>
           <figcaption>
-            <strong>Figure 2.</strong>
+            <strong>Figure 1.</strong>
             Evolution of salaries for popular jobs in New York City across the years (2015-2025). The top panel shows the percent increase in salary per year, compared to the 2015 mean, for 6 popular jobs. The bottom panel shows the mean salary (in USD) by year for each of the same 6 jobs.
           </figcaption>
         </figure>
@@ -745,7 +733,7 @@
         </div>
 
         <!-- Panels -->
-        <figure class="borough-panel" id="fig3-nyc"           role="tabpanel" aria-label="NYC Total">
+        <figure class="borough-panel" id="fig2-nyc"           role="tabpanel" aria-label="NYC Total">
           <!-- <div class="fig-placeholder">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             <span>Figure 3 — NYC Total</span>
@@ -754,42 +742,42 @@
             <iframe src="visualizations/rent_vs_salary_by_year_new_york_city.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
             <!-- 520/1600/900 -->
           </div>
-          <figcaption><strong>Figure 3 (NYC Total).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. Values in USD. Rent and salary data are mean values for apartments and work places in New York City as a whole. Shown data can be toggled, by clicking in the figure legend. </figcaption>
+          <figcaption><strong>Figure 2 (NYC Total).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. Values in USD. Rent and salary data are mean values for apartments and work places in New York City as a whole. Shown data can be toggled, by clicking in the figure legend. </figcaption>
         </figure>
 
-        <figure class="borough-panel hidden" id="fig3-manhattan" role="tabpanel" aria-label="Manhattan">
+        <figure class="borough-panel hidden" id="fig2-manhattan" role="tabpanel" aria-label="Manhattan">
           <div class="iframe-wrap">
             <iframe data-src="visualizations/rent_vs_salary_by_year_manhattan.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
-          <figcaption><strong>Figure 3 (Manhattan).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Manhattan. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
+          <figcaption><strong>Figure 2 (Manhattan).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Manhattan. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
         </figure>
 
-        <figure class="borough-panel hidden" id="fig3-brooklyn" role="tabpanel" aria-label="Brooklyn">
+        <figure class="borough-panel hidden" id="fig2-brooklyn" role="tabpanel" aria-label="Brooklyn">
           <div class="iframe-wrap">
             <iframe data-src="visualizations/rent_vs_salary_by_year_brooklyn.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
-          <figcaption><strong>Figure 3 (Brooklyn).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Brooklyn. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
+          <figcaption><strong>Figure 2 (Brooklyn).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Brooklyn. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
         </figure>
 
-        <figure class="borough-panel hidden" id="fig3-queens" role="tabpanel" aria-label="Queens">
+        <figure class="borough-panel hidden" id="fig2-queens" role="tabpanel" aria-label="Queens">
           <div class="iframe-wrap">
             <iframe data-src="visualizations/rent_vs_salary_by_year_queens.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
-          <figcaption><strong>Figure 3 (Queens).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Queens. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
+          <figcaption><strong>Figure 2 (Queens).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Queens. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
         </figure>
 
-        <figure class="borough-panel hidden" id="fig3-bronx" role="tabpanel" aria-label="The Bronx">
+        <figure class="borough-panel hidden" id="fig2-bronx" role="tabpanel" aria-label="The Bronx">
           <div class="iframe-wrap">
             <iframe data-src="visualizations/rent_vs_salary_by_year_bronx.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
-          <figcaption><strong>Figure 3 (The Bronx).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in The Bronx. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
+          <figcaption><strong>Figure 2 (The Bronx).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in The Bronx. Shown data can be toggled, by clicking in the figure legend. NYC mean salary can be shown for comparison. </figcaption>
         </figure>
 
-        <figure class="borough-panel hidden" id="fig3-staten-island" role="tabpanel" aria-label="Staten Island">
+        <figure class="borough-panel hidden" id="fig2-staten-island" role="tabpanel" aria-label="Staten Island">
           <div class="iframe-wrap">
             <iframe data-src="visualizations/rent_vs_salary_by_year_staten_island.html" height="500" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
-          <figcaption><strong>Figure 3 (Staten Island).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Staten Island. Shown data can be toggled, by clicking in the figure legend. NYC average salary can be shown for comparison. </figcaption>
+          <figcaption><strong>Figure 2 (Staten Island).</strong> Mean public-sector salary (bars) vs. mean rent by apartment type (lines), 2015–2025. The y-axis is values for rent / salary in USD. The x-axis is years. Rent and salary data are mean values for apartments and work places in Staten Island. Shown data can be toggled, by clicking in the figure legend. NYC average salary can be shown for comparison. </figcaption>
         </figure>
 
       </div>
@@ -812,15 +800,15 @@
 
       <!-- Sticky figure on the left -->
       <div class="sticky-fig">
-        <figure id="fig4">
+        <figure id="fig3">
           <div class="fig-placeholder">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
             </svg>
-            <span>Figure 4 — Animated Plot</span>
+            <span>Figure 3 — Animated Plot</span>
           </div>
           <figcaption>
-            <strong>Figure 4.</strong>
+            <strong>Figure 3.</strong>
             Affordability ratio (rent ÷ monthly salary) by borough over time. Values above 0.30 indicate cost-burdened households. Animated with Plotly; play to step through years.
           </figcaption>
         </figure>
@@ -844,13 +832,13 @@
         </div>
 
         <p>
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vel ante a orci tempus eleifend ut et magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<sup><a href="#ref5" id="cite5">[5]</a></sup>
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vel ante a orci tempus eleifend ut et magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<sup><a href="#ref2" id="cite5">[5]</a></sup>
         </p>
         <p>
           Curabitur dignissim nulla vel augue. Donec turpis. Donec vitae risus. Quisque tristique tristique turpis. Nulla facilisi. Fusce aliquet urna sit amet leo. Proin et tellus sit amet lorem fringilla fringilla.
         </p>
         <p>
-          Nam enim risus, molestie et, porta ac, aliquam sed, lorem. Praesent ac massa at ligula laoreet iaculis. Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit. Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula.<sup><a href="#ref6" id="cite6">[6]</a></sup>
+          Nam enim risus, molestie et, porta ac, aliquam sed, lorem. Praesent ac massa at ligula laoreet iaculis. Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit. Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula.<sup><a href="#ref1" id="cite6">[6]</a></sup>
         </p>
         <p>
           Fusce fermentum. Nullam cursus lacinia erat. Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas neque sit amet convallis ullamcorper, nisi nibh vestibulum odio, sit amet ultrices odio risus quis lacus.
@@ -878,13 +866,13 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. After accounting for federal and state income taxes as well as average monthly rent, how much of a public-sector salary actually remains for discretionary spending? The map below visualises the geographic distribution of estimated disposable income across NYC neighbourhoods.
         </p>
         <p>
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique.<sup><a href="#ref4" id="cite4b">[4]</a></sup>
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique.<sup><a href="#ref1" id="cite4b">[4]</a></sup>
         </p>
       </div>
 
       <!-- Figure 5 — Folium heatmap (taller aspect) -->
       <div class="fig-block">
-        <figure id="fig5">
+        <figure id="fig4">
           <!-- <div class="fig-placeholder fig-placeholder-map">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
@@ -895,7 +883,7 @@
             <iframe src="visualizations/map_rent_vs_income.html" height="725" data-fig-w="1090" data-fig-h="480"></iframe> 
           </div>
           <figcaption>
-            <strong>Figure 5.</strong>
+            <strong>Figure 4.</strong>
             Interactive heatmap showing estimated average monthly disposable income (post-tax, post-rent) for NYC public workers, by neighbourhood and apartment type. Red indicates near-zero or negative disposable income; green indicates comfortable surplus. Built with Folium.
           </figcaption>
         </figure>
@@ -903,7 +891,7 @@
 
       <div class="prose">
         <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.<sup><a href="#ref6" id="cite6b">[6]</a></sup>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.<sup><a href="#ref1" id="cite6b">[6]</a></sup>
         </p>
         <p>
           Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
@@ -917,11 +905,11 @@
   <!-- ════════════════════════════════════════════════
        SECTION 6 — Correlation / final figure (STICKY: text left, fig right)
   ════════════════════════════════════════════════ -->
-  <section class="sticky-section">
-    <div class="sticky-pair">
+  <!-- <section class="sticky-section">
+    <div class="sticky-pair"> -->
 
       <!-- Text column -->
-      <div class="sticky-text">
+      <!-- <div class="sticky-text">
         <p class="section-label">Section V</p>
         <h2>Patterns in the Data</h2>
         <div class="divider"></div>
@@ -941,10 +929,10 @@
         <p>
           Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In ac felis quis tortor malesuada pretium.
         </p>
-      </div>
+      </div> -->
 
       <!-- Sticky figure -->
-      <div class="sticky-fig">
+      <!-- <div class="sticky-fig">
         <figure id="fig6">
           <div class="fig-placeholder">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -961,7 +949,7 @@
       </div>
 
     </div>
-  </section>
+  </section> -->
 
 
   <!-- ════════════════════════════════════════════════
@@ -993,22 +981,13 @@
       <h2>References</h2>
       <ol>
         <li id="ref1">
-          Smith, J. A., &amp; Lee, M. (2021). <em>Housing Affordability in New York City: A Twenty-Year Retrospective.</em> NYU Furman Center for Real Estate and Urban Policy. Retrieved from https://furmancenter.org/
+          NYC Open Data. (2026). <em>NYC Citywide Payroll Data (Fiscal Year).</em> NYC Open Data. Retrieved from https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/about_data
         </li>
         <li id="ref2">
-          New York City Office of Management and Budget. (2023). <em>NYC Citywide Payroll Data (Fiscal Year 2023).</em> NYC Open Data. Retrieved from https://opendata.cityofnewyork.us/
+          StreetEasy. (2026). <em>NYC Median Asking Rent.</em> StreetEasy. Retrieved from https://streeteasy.com/blog/data-dashboard/?agg=Total&metric=Inventory&type=Rentals&bedrooms=Any%20Bedrooms&property=Any%20Property%20Type&minDate=2010-01-01&maxDate=2026-03-01&area=NYC,Brooklyn
         </li>
         <li id="ref3">
-          StreetEasy Research. (2023). <em>StreetEasy Rental Index Q4 2023.</em> StreetEasy. Retrieved from https://streeteasy.com/
-        </li>
-        <li id="ref4">
-          NYC Department of Housing Preservation and Development. (2022). <em>2021 New York City Housing and Vacancy Survey: Selected Initial Findings.</em> Retrieved from https://www.nyc.gov/site/hpd/
-        </li>
-        <li id="ref5">
           Marcuse, P. (2019). <em>Gentrification, Abandonment, and Displacement: Connections, Causes, and Policy Responses in New York City.</em> Journal of Urban &amp; Contemporary Law, 28, 195–240.
-        </li>
-        <li id="ref6">
-          U.S. Bureau of Labor Statistics. (2023). <em>Occupational Employment and Wage Statistics — New York Metro Area.</em> Retrieved from https://www.bls.gov/oes/
         </li>
       </ol>
     </div>
@@ -1093,22 +1072,6 @@
         });
     });
     })();
-    // function scaleIframes() {
-    //     document.querySelectorAll('.iframe-wrap iframe').forEach(function (iframe) {
-    //         var figW = parseFloat(iframe.getAttribute('data-fig-w'));
-    //         var figH = parseFloat(iframe.getAttribute('data-fig-h'));
-    //         if (!figW || !figH) return;
-    //         var availW = iframe.parentElement.clientWidth;
-    //         var scale  = availW / figW;
-    //         iframe.style.width  = figW + 'px';
-    //         iframe.style.height = figH + 'px';
-    //         iframe.style.transform = 'scale(' + scale + ')';
-    //         iframe.parentElement.style.height = (figH * scale) + 'px';
-    //     });
-    // }
-
-    // window.addEventListener('load',   scaleIframes);
-    // window.addEventListener('resize', scaleIframes);
   </script>
 
 </body>
